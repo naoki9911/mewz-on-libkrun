@@ -1,0 +1,14 @@
+{
+	"name": "Mewz on libkrun Dev Container",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ziglang.vscode-zig"
+			]
+		}
+	},
+}

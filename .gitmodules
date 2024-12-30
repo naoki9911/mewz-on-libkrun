@@ -1,0 +1,11 @@
+[submodule "mewz"]
+	path = mewz
+	url = https://github.com/naoki9911/mewz
+	branch = mewz-on-libkrun
+[submodule "libkrun"]
+	path = libkrun
+	url = https://github.com/naoki9911/libkrun
+	branch = mewz-on-libkrun
+[submodule "libkrunfw"]
+	path = libkrunfw
+	url = https://github.com/containers/libkrunfw

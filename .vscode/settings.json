@@ -1,0 +1,6 @@
+{
+    "zig.path": "/usr/bin/zig/zig",
+    "zig.zls.enabled": "on",
+    "zig.zls.path": "/usr/bin/zls",
+    "zig.zls.zigLibPath": "/usr/bin/zig/lib"
+}
