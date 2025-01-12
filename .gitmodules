@@ -9,3 +9,7 @@
 [submodule "libkrunfw"]
 	path = libkrunfw
 	url = https://github.com/containers/libkrunfw
+[submodule "wasmedge_wasi_socket"]
+	path = wasmedge_wasi_socket
+	url = https://github.com/naoki9911/wasmedge_wasi_socket
+	branch = mewz-on-libkrun
