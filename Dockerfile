@@ -6,7 +6,7 @@ RUN apt update && apt upgrade -y
 USER vscode
  
 # setup build env for libkrun
-RUN sudo apt install -y patchelf curl
+RUN sudo apt install -y patchelf curl passt
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH=/home/vscode/.cargo/bin:$PATH
 RUN rustup install 1.83.0-x86_64-unknown-linux-gnu
@@ -18,15 +18,15 @@ RUN sudo apt install -y python3-pyelftools
 
 # setup build env for Mewz
 RUN sudo apt-get install -y curl xz-utils qemu-system qemu-system-common qemu-utils git cmake libstdc++6 build-essential
-ARG ZIG_VERSION=zig-linux-x86_64-0.14.0-dev.2634+b36ea592b
+ARG ZIG_VERSION=0.14.0
 ENV PATH=/usr/bin/zig:$PATH
 
-RUN curl -SL https://ziglang.org/builds/${ZIG_VERSION}.tar.xz \
+RUN curl -SL https://ziglang.org/download/${ZIG_VERSION}/zig-linux-x86_64-${ZIG_VERSION}.tar.xz \
     | tar -xJC /tmp \
-    && sudo mv /tmp/${ZIG_VERSION} /usr/bin/zig
+    && sudo mv /tmp/zig-linux-x86_64-${ZIG_VERSION} /usr/bin/zig
 
 WORKDIR /tmp
-RUN git clone https://github.com/zigtools/zls
+RUN git clone -b ${ZIG_VERSION} https://github.com/zigtools/zls
 WORKDIR zls
 RUN zig build -Doptimize=ReleaseSafe
 RUN sudo mv ./zig-out/bin/zls /usr/bin/zls
